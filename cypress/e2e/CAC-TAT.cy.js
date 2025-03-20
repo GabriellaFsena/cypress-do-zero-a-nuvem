@@ -110,7 +110,7 @@ beforeEach(() => {
        
     })
   })
-    it.only('seleciona um arquivo simulando um drag-and-drop',() => {
+    it('seleciona um arquivo simulando um drag-and-drop',() => {
       cy.get('#file-upload')
       .selectFile('cypress/fixtures/example.json', {action: 'drag-drop'})
       .should(input => {
@@ -126,7 +126,7 @@ beforeEach(() => {
         expect(input[0].files[0].name).to.equal('example.json' )  
       })
   })
-  it.only('verifica que a politica de privacidade abre em outra aba sem a necessidade de um clique', () => {
+  it('verifica que a politica de privacidade abre em outra aba sem a necessidade de um clique', () => {
   
     cy.contains('a', 'Política de Privacidade')
     .should('have.attr', 'href', 'privacy.html')
