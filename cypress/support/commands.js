@@ -12,14 +12,18 @@
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
-Cypress.Commands.add('fillMandatoryFieldsAndSubmit', data => {
+Cypress.Commands.add('fillMandatoryFieldsAndSubmit', (data = {
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'johndoe@example.com',
+    text: 'Test.'
+  }) => {
     cy.get('#firstName').type(data.firstName)
     cy.get('#lastName').type(data.lastName)
     cy.get('#email').type(data.email)
-    cy.get('#phone').type(data.phone)
     cy.get('#open-text-area').type(data.text)
-   
-})
+    cy.contains('button', 'Enviar').click()
+  })
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
